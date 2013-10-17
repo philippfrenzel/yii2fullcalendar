@@ -1,7 +1,7 @@
 <?php
 
  /**
- * This class is merely used to publish a TOC based upon the headings within a defined container
+ * This class is used to embed FullCalendar JQuery Plugin to my Yii2 Projects
  * @copyright Frenzel GmbH - www.frenzel.net
  * @link http://www.frenzel.net
  * @author Philipp Frenzel <philipp@frenzel.net>
@@ -26,15 +26,15 @@ class yii2fullcalendar extends elWidget
     * If a value is null, the corresponding attribute will not be rendered.
     */
     public $options = array(
-        'class' => 'elfinder',
+        'class' => 'fullcalendar',
     );
 
     /**
      * @var array the HTML attributes for the widget container tag.
      */
     public $clientOptions = array(
-        'url' => '',
-        'lang' => 'de'
+        'weekends' => true,
+        'default' => 'month'
     );
 
     /**
@@ -54,17 +54,14 @@ class yii2fullcalendar extends elWidget
         }
 
         // set required options
-        if (empty($this->connectorRoute))
+        /*if (empty($this->connectorRoute))
         {
            echo "connectorRoute must be set!";
            exit;
         }
-        $this->clientOptions['url'] = Html::url(array($this->connectorRoute));
+        $this->clientOptions['url'] = Html::url(array($this->connectorRoute));*/
         
-        //fetch language from app
-        $this->clientOptions['lang'] = substr(Yii::$app->language,0,2);        
-
-        //parent::init();
+        parent::init();
     }
 
     /**
@@ -94,9 +91,9 @@ class yii2fullcalendar extends elWidget
         $assetClass::register($view);
 
         $js = array();
-        
+
         $cleanOptions = Json::encode($this->clientOptions);
-        $js[] = "var elf = $('#$id').elfinder($cleanOptions).elfinder('instance');";
+        $js[] = "$('#$id').fullCalendar($cleanOptions);";
         
         $view->registerJs(implode("\n", $js),View::POS_READY);
     }
