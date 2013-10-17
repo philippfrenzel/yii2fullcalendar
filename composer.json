@@ -1,0 +1,26 @@
+{
+	"name": "philippfrenzel/yii2fullcalendar",
+	"description": "Yii2 fullcalendar Widgets",
+	"keywords": ["yii", "framework","yii2 fullcalendar"],
+	"homepage": "http://www.frenzel.net/",
+	"type": "library",
+	"license": "MIT License",
+	"authors": [
+		{
+			"name": "Philipp Frenzel",
+			"email": "philipp@frenzel.net",
+			"homepage": "http://www.frenzel.net/",
+			"role": "Author Version Yii2"
+		}
+	],
+	"support": {
+		"source": "https://github.com/philippfrenzel/yii2fullcalendar"
+	},
+	"minimum-stability": "dev",
+	"require": {
+		"yiisoft/yii2": "*"
+	},
+	"autoload": {
+		"psr-0": { "yii2fullcalendar\\": "/" }
+	}
+}
