@@ -44,6 +44,12 @@ class yii2fullcalendar extends elWidget
     **/
     public $events = array();
 
+    public $header = array(
+        'left'=>'title',
+        'center'=>'prev,next today',        
+        'right'=>'month,agendaWeek',
+}, )
+
     /**
      * Will hold an url to json formatted events!
      * @var url to json service
@@ -107,6 +113,10 @@ class yii2fullcalendar extends elWidget
 
         if($this->ajaxEvents != NULL){
             $this->clientOptions['events'] = $this->ajaxEvents;
+        }
+
+        if(is_array($this->header)){
+            $this->clientOptions['header'] = $this->header;
         }
 
         $cleanOptions = Json::encode($this->clientOptions);
