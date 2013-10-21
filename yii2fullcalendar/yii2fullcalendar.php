@@ -44,11 +44,15 @@ class yii2fullcalendar extends elWidget
     **/
     public $events = array();
 
+    /**
+     * Define the look n feel for the calendar header, known placeholders are left, center, right
+     * @var array header format
+     */
     public $header = array(
         'left'=>'title',
         'center'=>'prev,next today',        
-        'right'=>'month,agendaWeek',
-}, )
+        'right'=>'month,agendaWeek'
+    );
 
     /**
      * Will hold an url to json formatted events!
