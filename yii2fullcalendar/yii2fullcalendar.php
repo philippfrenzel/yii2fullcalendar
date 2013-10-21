@@ -71,7 +71,7 @@ class yii2fullcalendar extends elWidget
         $Event = new \yii2fullcalendar\models\Event();
         $Event->id = 1;
         $Event->title = 'Testing';
-        $Event->start = date('Y-m-d');
+        $Event->start = date('Y-m-dTh:m:sZ');
         $this->events[] = $Event;
 
         parent::init();
