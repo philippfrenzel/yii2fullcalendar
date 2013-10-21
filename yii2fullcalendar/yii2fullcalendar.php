@@ -109,7 +109,7 @@ class yii2fullcalendar extends elWidget
         $js[] = "$('#$id').fullCalendar($cleanOptions);";
 
         //lets check if we have an event for the calendar...
-        if(len($this->events)>0){
+        if(count($this->events)>0){
             foreach($this->events AS $event){
                 $jsonEvent = Json::encode($event);
                 $js[] = "$('#$id').fullCalendar('renderEvent',$jsonEvent);";
