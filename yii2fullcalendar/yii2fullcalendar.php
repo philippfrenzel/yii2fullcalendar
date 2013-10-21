@@ -34,7 +34,8 @@ class yii2fullcalendar extends elWidget
      */
     public $clientOptions = array(
         'weekends' => true,
-        'default' => 'month'
+        'default' => 'month',
+        'editable' => false,
     );
 
     /**
@@ -42,6 +43,12 @@ class yii2fullcalendar extends elWidget
     * @var array of yii2fullcalendar\Event
     **/
     public $events = array();
+
+    /**
+     * Will hold an url to json formatted events!
+     * @var url to json service
+     */
+    public $ajaxEvents = NULL;
 
     /**
      * @var array the HTML attributes for the widget container tag.
@@ -97,6 +104,10 @@ class yii2fullcalendar extends elWidget
         $assetClass::register($view);
 
         $js = array();
+
+        if($this->ajaxEvents != NULL){
+            $this->clientOptions['events'] = $this->ajaxEvents;
+        }
 
         $cleanOptions = Json::encode($this->clientOptions);
         $js[] = "$('#$id').fullCalendar($cleanOptions);";
