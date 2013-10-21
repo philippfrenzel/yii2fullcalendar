@@ -24,9 +24,9 @@ class Event extends Model
   public $durationEditable;
   public $source;
   public $color;
-  public $backgroundColor;
-  public $borderColor;
-  public $textColor;
+  public $eventBackgroundColor;
+  public $eventBorderColor;
+  public $eventTextColor;
 
   public function rules()
   {
