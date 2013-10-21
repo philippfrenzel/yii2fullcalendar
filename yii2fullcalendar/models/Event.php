@@ -4,7 +4,7 @@ namespace yii2fullcalendar\models;
 
 use yii\base\Model;
 
-class MessagesSearch extends Model
+class Event extends Model
 {
 
   /**
