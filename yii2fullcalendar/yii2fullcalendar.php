@@ -38,6 +38,12 @@ class yii2fullcalendar extends elWidget
     );
 
     /**
+    * Holds an array of Event Objects
+    * @var array of yii2fullcalendar\Event
+    **/
+    public $events = array();
+
+    /**
      * @var array the HTML attributes for the widget container tag.
      */
     public $connectorRoute = false;
@@ -60,7 +66,14 @@ class yii2fullcalendar extends elWidget
            exit;
         }
         $this->clientOptions['url'] = Html::url(array($this->connectorRoute));*/
-        
+
+        //Testing
+        $Event = new yii2fullcalendar\Event();
+        $Event->id = 1;
+        $Event->title = 'Testing';
+        $Event->start = date('Y-m-d');
+        $this->events[] = $Event;
+
         parent::init();
     }
 
@@ -94,6 +107,14 @@ class yii2fullcalendar extends elWidget
 
         $cleanOptions = Json::encode($this->clientOptions);
         $js[] = "$('#$id').fullCalendar($cleanOptions);";
+
+        //lets check if we have an event for the calendar...
+        if(len($this->events)>0){
+            foreach($this->events AS $event){
+                $jsonEvent = Json::encode($event);
+                $js[] = "$('#$id').fullCalendar('renderEvent',$jsonEvent);";
+            }
+        }
         
         $view->registerJs(implode("\n", $js),View::POS_READY);
     }
