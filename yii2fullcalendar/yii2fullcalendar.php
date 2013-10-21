@@ -67,13 +67,6 @@ class yii2fullcalendar extends elWidget
         }
         $this->clientOptions['url'] = Html::url(array($this->connectorRoute));*/
 
-        //Testing
-        $Event = new \yii2fullcalendar\models\Event();
-        $Event->id = 1;
-        $Event->title = 'Testing';
-        $Event->start = date('Y-m-dTh:m:sZ');
-        $this->events[] = $Event;
-
         parent::init();
     }
 
