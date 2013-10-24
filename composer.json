@@ -3,7 +3,7 @@
 	"description": "Yii2 fullcalendar Widgets",
 	"keywords": ["yii", "framework","yii2 fullcalendar"],
 	"homepage": "http://www.frenzel.net/",
-	"type": "library",
+	"type": "yii2-extension",
 	"license": "MIT License",
 	"authors": [
 		{
