@@ -22,6 +22,6 @@ class Extension extends \yii\base\Extension
    */
   public static function init()
   {
-    Yii::setAlias('@yii2fullcalendar;', __DIR__);
+    Yii::setAlias('@yii2fullcalendar', __DIR__);
   }
 }
