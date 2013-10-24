@@ -22,5 +22,8 @@
 	},
 	"autoload": {
 		"psr-0": { "yii2fullcalendar\\": "/" }
-	}
+	},
+	"extra": {
+          "bootstrap": "yii2fullcalendar\\Extension"
+  }
 }
