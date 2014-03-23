@@ -21,9 +21,7 @@
 		"yiisoft/yii2": "*"
 	},
 	"autoload": {
-		"psr-0": { "yii2fullcalendar\\": "/" }
+		"psr-0": { "yii2fullcalendar\\": "" }
 	},
-	"extra": {
-          "bootstrap": "yii2fullcalendar\\Extension"
-  }
+	"target-dir": "philippfrenzel/yii2fullcalendar"
 }
