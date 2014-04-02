@@ -21,6 +21,6 @@
 		"yiisoft/yii2": "*"
 	},
 	"autoload": {
-		"psr-0": { "yii2fullcalendar\\": "" }
+		"psr-4": { "yii2fullcalendar\\": "" }
 	}
 }
