@@ -22,6 +22,5 @@
 	},
 	"autoload": {
 		"psr-0": { "yii2fullcalendar\\": "" }
-	},
-	"target-dir": "philippfrenzel/yii2fullcalendar"
+	}
 }
