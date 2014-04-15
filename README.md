@@ -53,13 +53,14 @@ If you wanna use ajax loader, this could look like this:
 
 ```php
 <?= yii2fullcalendar\yii2fullcalendar::widget(array(
-  'ajaxEvents' => Url::to(['/timetrack/default/jsoncalendar']),
-  ));
+      'ajaxEvents' => Url::to(['/timetrack/default/jsoncalendar'])
+    ));
+?>
 ```
 
 and inside your referenced controller, the action should look like this:
 
-```
+```php
 public function actionJsoncalendar($start=NULL,$end=NULL,$_=NULL){
     $times = \app\modules\timetrack\models\Timetable::find()->where(array('category'=>\app\modules\timetrack\models\Timetable::CAT_TIMETRACK))->all();
 
