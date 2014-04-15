@@ -21,7 +21,7 @@ class yii2fullcalendar extends elWidget
 {
 
     /**
-    * @var array the HTML attributes (name-value pairs) for the field container tag.
+    * @var array options the HTML attributes (name-value pairs) for the field container tag.
     * The values will be HTML-encoded using [[Html::encode()]].
     * If a value is null, the corresponding attribute will not be rendered.
     */
@@ -30,7 +30,7 @@ class yii2fullcalendar extends elWidget
     );
 
     /**
-     * @var array the HTML attributes for the widget container tag.
+     * @var array clientOptions the HTML attributes for the widget container tag.
      */
     public $clientOptions = array(
         'weekends' => true,
@@ -40,7 +40,8 @@ class yii2fullcalendar extends elWidget
 
     /**
     * Holds an array of Event Objects
-    * @var array of yii2fullcalendar\Event
+    * @var array events of yii2fullcalendar\Event
+    * @todo add the event class and write docs
     **/
     public $events = array();
 
@@ -59,11 +60,6 @@ class yii2fullcalendar extends elWidget
      * @var url to json service
      */
     public $ajaxEvents = NULL;
-
-    /**
-     * @var array the HTML attributes for the widget container tag.
-     */
-    public $connectorRoute = false;
     
     /**
      * Initializes the widget.
@@ -75,14 +71,6 @@ class yii2fullcalendar extends elWidget
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
         }
-
-        // set required options
-        /*if (empty($this->connectorRoute))
-        {
-           echo "connectorRoute must be set!";
-           exit;
-        }
-        $this->clientOptions['url'] = Html::url(array($this->connectorRoute));*/
 
         parent::init();
     }
@@ -98,14 +86,10 @@ class yii2fullcalendar extends elWidget
     }
 
     /**
-    * Registers a specific dhtmlx widget and the related events
-    * @param string $name the name of the dhtmlx plugin
+    * Registers the FullCalendar javascript assets and builds the requiered js  for the widget and the related events
     */
     protected function registerPlugin()
     {
-        //for the js object generation, the first letter needs to be in upper case
-        $name = ucfirst($name);
-
         $id = $this->options['id'];
         $view = $this->getView();
 
