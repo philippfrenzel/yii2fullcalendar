@@ -1,24 +1,28 @@
 yii2fullcalendar
 ================
-
 JQuery Fullcalendar Yii2 Extension
-
-JQuery from:
-http://arshaw.com/fullcalendar/
-
+JQuery from: http://arshaw.com/fullcalendar/
 License MIT
 
 JQuery Documentation:
 http://arshaw.com/fullcalendar/docs/
-
 Yii2 Extension by <philipp@frenzel.net>
+
+Installation
+============
+Package is although registered at packagist.org - so you can just add one line of code, to let it run!
+
+add the following line to your composer.json require section:
+```json
+  "philippfrenzel/yii2fullcalendar":"*",
+```
 
 Usage
 =====
 
 Quickstart Looks like this:
 
-'''
+```php
 
   $events = array();
   //Testing
@@ -36,25 +40,26 @@ Quickstart Looks like this:
 
   ?>
   
-  <?= yii2fullcalendar\yii2fullcalendar::widget(array(
+  <?= \yii2fullcalendar\yii2fullcalendar::widget(array(
       'events'=> $events,
   ));
-'''
+```
 
 Note, that this will only view the events without any detailed view or option to add a new event.. etc.
 
 AJAX Usage
 ==========
 If you wanna use ajax loader, this could look like this:
-'''
+
+```php
 <?= yii2fullcalendar\yii2fullcalendar::widget(array(
-  'ajaxEvents' => Html::Url(array('/timetrack/default/jsoncalendar')),
+  'ajaxEvents' => Url::to(['/timetrack/default/jsoncalendar']),
   ));
-'''
+```
 
 and inside your referenced controller, the action should look like this:
 
-'''
+```
 public function actionJsoncalendar($start=NULL,$end=NULL,$_=NULL){
     $times = \app\modules\timetrack\models\Timetable::find()->where(array('category'=>\app\modules\timetrack\models\Timetable::CAT_TIMETRACK))->all();
 
@@ -72,6 +77,7 @@ public function actionJsoncalendar($start=NULL,$end=NULL,$_=NULL){
 
     header('Content-type: application/json');
     echo Json::encode($events);
-    exit;
+    
+    Yii::$app->end();
   }
-'''
+```
