@@ -40,7 +40,7 @@ class yii2fullcalendar extends elWidget
 
     /**
     * Holds an array of Event Objects
-    * @var array events of yii2fullcalendar\Event
+    * @var array events of yii2fullcalendar\models\Event
     * @todo add the event class and write docs
     **/
     public $events = array();
