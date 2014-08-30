@@ -11,15 +11,34 @@ use yii\web\AssetBundle;
 
 class CoreAsset extends AssetBundle
 {
+    /**
+     * [$sourcePath description]
+     * @var string
+     */
     public $sourcePath = '@yii2fullcalendar/assets';
+    
+    /**
+     * [$css description]
+     * @var array
+     */
     public $css = array(
         'css/fullcalendar.css',
         'css/fullcalendar.print.css',
     );
+
+    /**
+     * [$js description]
+     * @var array
+     */
     public $js = array(
         'js/fullcalendar.js',
         'js/gcal.js',
     );
+    
+    /**
+     * [$depends description]
+     * @var array
+     */
     public $depends = array(
         'yii\jui\CoreAsset',
         'yii\jui\ThemeAsset',
