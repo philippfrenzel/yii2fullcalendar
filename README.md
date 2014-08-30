@@ -2,6 +2,7 @@ yii2fullcalendar
 ================
 JQuery Fullcalendar Yii2 Extension
 JQuery from: http://arshaw.com/fullcalendar/
+Version 2.1.1
 License MIT
 
 JQuery Documentation:
