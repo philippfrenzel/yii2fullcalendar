@@ -31,10 +31,10 @@ class CoreAsset extends AssetBundle
      * @var array
      */
     public $js = array(
+        'js/lib/moment.min.js',
         'js/fullcalendar.js',
         'js/gcal.js',
         'js/lang-all.js',
-        'js/lib/moment.min.js',
     );
     
     /**
