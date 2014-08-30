@@ -8,6 +8,9 @@ JQuery Documentation:
 http://arshaw.com/fullcalendar/docs/
 Yii2 Extension by <philipp@frenzel.net>
 
+A tiny sample can be found here:
+http://yii2fullcalendar.beeye.org
+
 Installation
 ============
 Package is although registered at packagist.org - so you can just add one line of code, to let it run!
