@@ -21,27 +21,27 @@ class CoreAsset extends AssetBundle
      * [$css description]
      * @var array
      */
-    public $css = array(
+    public $css = [
         'css/fullcalendar.css',
-        'css/fullcalendar.print.css',
-    );
+    ];
 
     /**
      * [$js description]
      * @var array
      */
-    public $js = array(
+    public $js = [
         'js/lib/moment.min.js',
         'js/fullcalendar.js',
         'js/gcal.js',
         'js/lang-all.js',
-    );
+    ];
     
     /**
      * [$depends description]
      * @var array
      */
-    public $depends = array(
+    public $depends = [
+        'yii2fullcalendar\PrintAsset',
         'yii\jui\CoreAsset',
         'yii\jui\ThemeAsset',
         'yii\jui\EffectAsset',
@@ -49,5 +49,5 @@ class CoreAsset extends AssetBundle
         'yii\jui\DraggableAsset',
         'yii\jui\DroppableAsset',
         'yii\jui\SelectableAsset'
-    );
+    ];
 }

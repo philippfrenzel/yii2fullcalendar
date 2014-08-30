@@ -50,8 +50,8 @@ class yii2fullcalendar extends elWidget
      * @var array header format
      */
     public $header = array(
-        'left'=>'title',
-        'center'=>'prev,next today',        
+        'center'=>'title',
+        'left'=>'prev,next today',        
         'right'=>'month,agendaWeek'
     );
 
