@@ -33,13 +33,13 @@ Quickstart Looks like this:
   $Event = new \yii2fullcalendar\models\Event();
   $Event->id = 1;
   $Event->title = 'Testing';
-  $Event->start = date('Y-m-d\Th:m:s\Z');
+  $Event->start = date('Y-m-d\TH:m:s\Z');
   $events[] = $Event;
 
   $Event = new \yii2fullcalendar\models\Event();
   $Event->id = 2;
   $Event->title = 'Testing';
-  $Event->start = date('Y-m-d\Th:m:s\Z',strtotime('tomorrow 6am'));
+  $Event->start = date('Y-m-d\TH:m:s\Z',strtotime('tomorrow 6am'));
   $events[] = $Event;
 
   ?>
@@ -75,8 +75,8 @@ public function actionJsoncalendar($start=NULL,$end=NULL,$_=NULL){
       $Event = new \yii2fullcalendar\models\Event();
       $Event->id = $time->id;
       $Event->title = $time->categoryAsString;
-      $Event->start = date('Y-m-d\Th:m:s\Z',strtotime($time->date_start.' '.$time->time_start));
-      $Event->end = date('Y-m-d\Th:m:s\Z',strtotime($time->date_start.' '.$time->time_end));
+      $Event->start = date('Y-m-d\TH:m:s\Z',strtotime($time->date_start.' '.$time->time_start));
+      $Event->end = date('Y-m-d\TH:m:s\Z',strtotime($time->date_start.' '.$time->time_end));
       $events[] = $Event;
     }
 
