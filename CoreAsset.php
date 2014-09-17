@@ -42,12 +42,6 @@ class CoreAsset extends AssetBundle
      */
     public $depends = [
         'yii2fullcalendar\PrintAsset',
-        'yii\jui\CoreAsset',
-        'yii\jui\ThemeAsset',
-        'yii\jui\EffectAsset',
-        'yii\jui\ResizableAsset',
-        'yii\jui\DraggableAsset',
-        'yii\jui\DroppableAsset',
-        'yii\jui\SelectableAsset'
+        'yii\jui\JuiAsset'
     ];
 }
