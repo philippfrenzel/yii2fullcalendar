@@ -62,6 +62,12 @@ class yii2fullcalendar extends elWidget
     public $ajaxEvents = NULL;
     
     /**
+     * wheather the events will be "sticky" on pagination or not
+     * @var boolean
+     */
+    public $stickyEvents = true;
+
+    /**
      * Initializes the widget.
      * If you override this method, make sure you call the parent implementation first.
      */
@@ -113,7 +119,8 @@ class yii2fullcalendar extends elWidget
         if(count($this->events)>0){
             foreach($this->events AS $event){
                 $jsonEvent = Json::encode($event);
-                $js[] = "$('#$id').fullCalendar('renderEvent',$jsonEvent);";
+                $isSticky = $this->stickyEvents;
+                $js[] = "$('#$id').fullCalendar('renderEvent',$jsonEvent,$isSticky);";
             }
         }
         
