@@ -21,6 +21,11 @@ add the following line to your composer.json require section:
   "philippfrenzel/yii2fullcalendar":"*",
 ```
 
+Changelog
+---------
+
+29-11-2014 Updated to latest 2.2.3 Version of the library
+
 Usage
 =====
 
