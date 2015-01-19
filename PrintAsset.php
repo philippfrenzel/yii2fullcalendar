@@ -15,7 +15,7 @@ class PrintAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = '@yii2fullcalendar/assets';
+    public $sourcePath = '@bower/fullcalendar';
     
     /**
      * [$css description]
@@ -32,5 +32,14 @@ class PrintAsset extends AssetBundle
     public $cssOptions = [
     	'media' => 'print'
     ];
+
+    public function init()
+    {
+        parent::init();
+        $this->publishOptions['beforeCopy'] = function ($from, $to) {
+            $dirname = basename(dirname($from));
+            return $dirname === 'js' || $dirname === 'css';
+        };
+    }
 }
 

@@ -15,7 +15,7 @@ class CoreAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = '@yii2fullcalendar/assets';
+    public $sourcePath = '@bower/fullcalendar';
     
     /**
      * [$css description]
@@ -44,4 +44,13 @@ class CoreAsset extends AssetBundle
         'yii2fullcalendar\PrintAsset',
         'yii\jui\JuiAsset'
     ];
+
+    public function init()
+    {
+        parent::init();
+        $this->publishOptions['beforeCopy'] = function ($from, $to) {
+            $dirname = basename(dirname($from));
+            return $dirname === 'js' || $dirname === 'css';
+        };
+    }
 }
