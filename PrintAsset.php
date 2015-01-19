@@ -32,14 +32,5 @@ class PrintAsset extends AssetBundle
     public $cssOptions = [
     	'media' => 'print'
     ];
-
-    public function init()
-    {
-        parent::init();
-        $this->publishOptions['beforeCopy'] = function ($from, $to) {
-            $dirname = basename(dirname($from));
-            return $dirname === 'js' || $dirname === 'css';
-        };
-    }
 }
 

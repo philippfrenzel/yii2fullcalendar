@@ -44,13 +44,5 @@ class CoreAsset extends AssetBundle
         'yii2fullcalendar\PrintAsset',
         'yii\jui\JuiAsset'
     ];
-
-    public function init()
-    {
-        parent::init();
-        $this->publishOptions['beforeCopy'] = function ($from, $to) {
-            $dirname = basename(dirname($from));
-            return $dirname === 'js' || $dirname === 'css';
-        };
-    }
+    
 }
