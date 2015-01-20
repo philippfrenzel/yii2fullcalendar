@@ -15,14 +15,14 @@ class CoreAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = '@bower/fullcalendar';
+    public $sourcePath = '@bower/fullcalendar/dist';
     
     /**
      * [$css description]
      * @var array
      */
     public $css = [
-        'css/fullcalendar.css',
+        'fullcalendar.css',
     ];
 
     /**
@@ -30,10 +30,9 @@ class CoreAsset extends AssetBundle
      * @var array
      */
     public $js = [
-        'js/lib/moment.min.js',
-        'js/fullcalendar.js',
-        'js/gcal.js',
-        'js/lang-all.js',
+        'fullcalendar.js',
+        'gcal.js',
+        'lang-all.js',
     ];
     
     /**
@@ -41,8 +40,9 @@ class CoreAsset extends AssetBundle
      * @var array
      */
     public $depends = [
+        'yii2fullcalendar\MomentAsset',
         'yii2fullcalendar\PrintAsset',
         'yii\jui\JuiAsset'
     ];
-    
+
 }
