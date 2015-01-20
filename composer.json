@@ -16,7 +16,7 @@
 	"support": {
 		"source": "https://github.com/philippfrenzel/yii2fullcalendar"
 	},
-	"minimum-stability": "dev",
+	"minimum-stability": "stable",
 	"require": {
 		"yiisoft/yii2" : "*",
 		"yiisoft/yii2-jui": "*",
