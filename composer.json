@@ -1,7 +1,7 @@
 {
 	"name": "philippfrenzel/yii2fullcalendar",
 	"description": "Yii2 fullcalendar Widgets",
-	"keywords": ["yii", "framework","yii2 fullcalendar"],
+	"keywords": ["yii2", "fullcalendar"],
 	"homepage": "http://www.frenzel.net/",
 	"type": "yii2-extension",
 	"license": "MIT License",
