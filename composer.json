@@ -21,7 +21,7 @@
 		"yiisoft/yii2" : "*",
 		"yiisoft/yii2-jui": "*",
 		"bower-asset/moment" : "*",
-		"bower-asset/fullcalendar" : "*"
+		"bower-asset/fullcalendar" : "2.2.*@stable"
 	},
 	"autoload": {
 		"psr-4": { "yii2fullcalendar\\": "" }
