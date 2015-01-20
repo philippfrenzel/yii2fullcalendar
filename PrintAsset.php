@@ -15,7 +15,7 @@ class PrintAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = '@bower/fullcalendar';
+    public $sourcePath = '@bower/fullcalendar/dist';
     
     /**
      * [$css description]

@@ -15,7 +15,7 @@ class CoreAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = '@bower/fullcalendar';
+    public $sourcePath = '@bower/fullcalendar/dist';
 
     /**
      * [$autoGenerate description]
