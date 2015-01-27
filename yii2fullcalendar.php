@@ -100,7 +100,11 @@ class yii2fullcalendar extends elWidget
         $view = $this->getView();
 
         /** @var \yii\web\AssetBundle $assetClass */
-        CoreAsset::register($view);
+        $assets = CoreAsset::register($view);
+
+        if (isset($this->options['lang'])) {
+            $assets->language = $this->config['lang'];
+        }
 
         $js = array();
 
