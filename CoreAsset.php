@@ -2,6 +2,7 @@
 
 namespace yii2fullcalendar;
 
+use Yii;
 use yii\web\AssetBundle;
 
 /**

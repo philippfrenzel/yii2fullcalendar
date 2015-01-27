@@ -77,6 +77,10 @@ class yii2fullcalendar extends elWidget
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
         }
+         //checks for the element id
+        if (!isset($this->options['class'])) {
+            $this->options['class'] = 'fullcalendar';
+        }
 
         parent::init();
     }
@@ -103,7 +107,7 @@ class yii2fullcalendar extends elWidget
         $assets = CoreAsset::register($view);
 
         if (isset($this->options['lang'])) {
-            $assets->language = $this->config['lang'];
+            $assets->language = $this->options['lang'];
         }
 
         $js = array();
