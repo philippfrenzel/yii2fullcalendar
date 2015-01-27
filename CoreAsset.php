@@ -51,4 +51,14 @@ class CoreAsset extends AssetBundle
         'yii\jui\JuiAsset'
     ];
 
+    /**
+     * @inheritdoc
+     */
+    public function registerAssetFiles($view)
+    {
+        $language = $this->language ? $this->language : Yii::$app->language;
+        $this->js[] = "lang/{$language}.js";
+        parent::registerAssetFiles($view);
+    }
+
 }
