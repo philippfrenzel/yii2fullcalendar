@@ -19,7 +19,7 @@ class CoreAsset extends AssetBundle
 
     /**
      * the language the calender will be displayed in
-     * @var null
+     * @var string ISO2 code for the wished display language
      */
     public $language = NULL;
 
