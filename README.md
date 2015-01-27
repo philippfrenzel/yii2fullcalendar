@@ -61,9 +61,13 @@ AJAX Usage
 If you wanna use ajax loader, this could look like this:
 
 ```php
-<?= yii2fullcalendar\yii2fullcalendar::widget(array(
+<?= yii2fullcalendar\yii2fullcalendar::widget([
+      'options' => [
+        'language' => 'de',
+        //... more options to be defined here!
+      ],
       'ajaxEvents' => Url::to(['/timetrack/default/jsoncalendar'])
-    ));
+    ]);
 ?>
 ```
 
@@ -71,6 +75,9 @@ and inside your referenced controller, the action should look like this:
 
 ```php
 public function actionJsoncalendar($start=NULL,$end=NULL,$_=NULL){
+
+    \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
     $times = \app\modules\timetrack\models\Timetable::find()->where(array('category'=>\app\modules\timetrack\models\Timetable::CAT_TIMETRACK))->all();
 
     $events = array();
@@ -85,9 +92,6 @@ public function actionJsoncalendar($start=NULL,$end=NULL,$_=NULL){
       $events[] = $Event;
     }
 
-    header('Content-type: application/json');
-    echo Json::encode($events);
-    
-    Yii::$app->end();
+    return $events;
   }
 ```
