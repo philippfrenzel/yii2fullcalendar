@@ -20,8 +20,7 @@
 	"require": {
 		"yiisoft/yii2" : "*",
 		"yiisoft/yii2-jui": "*",
-		"bower-asset/moment" : "*",
-		"bower-asset/fullcalendar" : "2.2.*@stable"
+		"bower-asset/fullcalendar" : "2.2.* | 2.1.* | 2.0.*"
 	},
 	"autoload": {
 		"psr-4": { "yii2fullcalendar\\": "" }
