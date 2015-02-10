@@ -21,6 +21,10 @@ add the following line to your composer.json require section:
   "philippfrenzel/yii2fullcalendar":"*",
 ```
 
+And ensure, that you have the follwing plugin installed global:
+
+> php composer.phar global require "fxp/composer-asset-plugin:~1.0"
+
 Changelog
 ---------
 
