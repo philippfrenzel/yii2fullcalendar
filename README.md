@@ -12,6 +12,12 @@ Yii2 Extension by <philipp@frenzel.net>
 A tiny sample can be found here:
 http://yii2fullcalendar.beeye.org
 
+[![Latest Stable Version](https://poser.pugx.org/philippfrenzel/yii2fullcalendar/v/stable.svg)](https://packagist.org/packages/philippfrenzel/yii2fullcalendar)
+[![Build Status](https://travis-ci.org/philippfrenzel/yii2fullcalendar.svg?branch=master)](https://travis-ci.org/philippfrenzel/yii2fullcalendar)
+[![Code Climate](https://codeclimate.com/github/philippfrenzel/yii2fullcalendar.png)](https://codeclimate.com/github/philippfrenzel/yii2fullcalendar)
+[![Version Eye](https://www.versioneye.com/php/philippfrenzel:yii2fullcalendar/badge.svg)](https://www.versioneye.com/php/philippfrenzel:yii2fullcalendar)
+[![License](https://poser.pugx.org/philippfrenzel/yii2fullcalendar/license.svg)](https://packagist.org/packages/philippfrenzel/yii2fullcalendar)
+
 Installation
 ============
 Package is although registered at packagist.org - so you can just add one line of code, to let it run!

@@ -4,13 +4,13 @@
 	"keywords": ["yii2", "fullcalendar"],
 	"homepage": "http://www.frenzel.net/",
 	"type": "yii2-extension",
-	"license": "MIT License",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Philipp Frenzel",
 			"email": "philipp@frenzel.net",
 			"homepage": "http://www.frenzel.net/",
-			"role": "Author Version Yii2"
+			"role": "Developer"
 		}
 	],
 	"support": {
@@ -18,9 +18,13 @@
 	},
 	"minimum-stability": "stable",
 	"require": {
+		"php": ">=5.4.0",
 		"yiisoft/yii2" : "*",
 		"yiisoft/yii2-jui": "*",
 		"bower-asset/fullcalendar" : "2.2.* | 2.1.* | 2.0.*"
+	},
+	"require-dev": {
+		"codeception/codeception": "*"
 	},
 	"autoload": {
 		"psr-4": { "yii2fullcalendar\\": "" }
