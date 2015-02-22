@@ -29,6 +29,12 @@ class CoreAsset extends AssetBundle
      * @var boolean
      */
     public $autoGenerate = true;
+
+    /**
+     * tell the calendar, if you like to render google calendar events within the view
+     * @var boolean
+     */
+    public $googleCalendar = false;
     
     /**
      * [$css description]

@@ -179,7 +179,7 @@ class yii2fullcalendar extends elWidget
     {
         $id = $this->options['id'];
         $options['loading'] = new JsExpression("function(isLoading, view ) {
-                $('#container_{$id}').find('.fc-loading').toggle(isLoading);
+                $('#{$id}').find('.fc-loading').toggle(isLoading);
         }");
         $options = array_merge($options, $this->clientOptions);
         return Json::encode($options);
