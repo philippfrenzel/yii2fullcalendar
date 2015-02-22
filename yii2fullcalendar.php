@@ -25,35 +25,35 @@ class yii2fullcalendar extends elWidget
     * The values will be HTML-encoded using [[Html::encode()]].
     * If a value is null, the corresponding attribute will not be rendered.
     */
-    public $options = array(
+    public $options = [
         'class' => 'fullcalendar',
-    );
+    ];
 
     /**
      * @var array clientOptions the HTML attributes for the widget container tag.
      */
-    public $clientOptions = array(
+    public $clientOptions = [
         'weekends' => true,
         'default' => 'month',
         'editable' => false,
-    );
+    ];
 
     /**
     * Holds an array of Event Objects
     * @var array events of yii2fullcalendar\models\Event
     * @todo add the event class and write docs
     **/
-    public $events = array();
+    public $events = [];
 
     /**
      * Define the look n feel for the calendar header, known placeholders are left, center, right
      * @var array header format
      */
-    public $header = array(
+    public $header = [
         'center'=>'title',
         'left'=>'prev,next today',        
         'right'=>'month,agendaWeek'
-    );
+    ];
 
     /**
      * Will hold an url to json formatted events!
@@ -66,6 +66,24 @@ class yii2fullcalendar extends elWidget
      * @var boolean
      */
     public $stickyEvents = true;
+
+    /**
+     * tell the calendar, if you like to render google calendar events within the view
+     * @var boolean
+     */
+    public $googleCalendar = false;
+
+    /**
+     * the text that will be displayed on changing the pages
+     * @var string
+     */
+    public $loading = 'Loading ...';
+
+    /**
+     * internal marker for the name of the plugin
+     * @var string
+     */
+    private $_pluginName = 'fullCalendar';
 
     /**
      * Initializes the widget.
@@ -89,8 +107,17 @@ class yii2fullcalendar extends elWidget
      * Renders the widget.
      */
     public function run()
-    {
+    {   
+        $this->options['data-plugin-name'] = $this->_pluginName;
+
+        if (!isset($this->options['class'])) {
+            $this->options['class'] = 'fullcalendar';
+        }
+        
         echo Html::beginTag('div', $this->options) . "\n";
+            echo Html::beginTag('div',['class'=>'fc-loading','style' => 'display:none;']);
+                echo Html::encode($this->loading);
+            echo Html::endTag('div')."\n";
         echo Html::endTag('div')."\n";
         $this->registerPlugin();
     }
@@ -99,15 +126,21 @@ class yii2fullcalendar extends elWidget
     * Registers the FullCalendar javascript assets and builds the requiered js  for the widget and the related events
     */
     protected function registerPlugin()
-    {
+    {        
         $id = $this->options['id'];
         $view = $this->getView();
 
         /** @var \yii\web\AssetBundle $assetClass */
         $assets = CoreAsset::register($view);
 
-        if (isset($this->options['lang'])) {
+        if (isset($this->options['lang'])) 
+        {
             $assets->language = $this->options['lang'];
+        }        
+        
+        if ($this->googleCalendar) 
+        {
+            $asset->googleCalendar = $this->googleCalendar;
         }
 
         $js = array();
@@ -116,16 +149,19 @@ class yii2fullcalendar extends elWidget
             $this->clientOptions['events'] = $this->ajaxEvents;
         }
 
-        if(is_array($this->header)){
+        if(is_array($this->header))
+        {
             $this->clientOptions['header'] = $this->header;
         }
 
-        $cleanOptions = Json::encode($this->clientOptions);
+        $cleanOptions = $this->getClientOptions();
         $js[] = "$('#$id').fullCalendar($cleanOptions);";
 
         //lets check if we have an event for the calendar...
-        if(count($this->events)>0){
-            foreach($this->events AS $event){
+        if(count($this->events)>0)
+        {
+            foreach($this->events AS $event)
+            {
                 $jsonEvent = Json::encode($event);
                 $isSticky = $this->stickyEvents;
                 $js[] = "$('#$id').fullCalendar('renderEvent',$jsonEvent,$isSticky);";
@@ -133,6 +169,19 @@ class yii2fullcalendar extends elWidget
         }
         
         $view->registerJs(implode("\n", $js),View::POS_READY);
+    }
+
+    /**
+     * @return array the options for the text field
+     */
+    protected function getClientOptions()
+    {
+        $id = $this->options['id'];
+        $options['loading'] = new JsExpression("function(isLoading, view ) {
+                $('#container_{$id}').find('.fc-loading').toggle(isLoading);
+        }");
+        $options = array_merge($options, $this->clientOptions);
+        return Json::encode($options);
     }
 
 }

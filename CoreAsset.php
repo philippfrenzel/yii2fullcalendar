@@ -43,8 +43,7 @@ class CoreAsset extends AssetBundle
      * @var array
      */
     public $js = [
-        'fullcalendar.js',
-        'gcal.js',
+        'fullcalendar.js',        
         'lang-all.js',
     ];
     
@@ -64,7 +63,16 @@ class CoreAsset extends AssetBundle
     public function registerAssetFiles($view)
     {
         $language = $this->language ? $this->language : Yii::$app->language;
-        $this->js[] = "lang/{$language}.js";
+        if ($language != 'en-us') 
+        {
+            $this->js[] = "lang/{$language}.js";
+        }
+
+        if($this->googleCalendar)
+        {
+            $this->js[] = 'gcal.js';
+        }
+
         parent::registerAssetFiles($view);
     }
 
