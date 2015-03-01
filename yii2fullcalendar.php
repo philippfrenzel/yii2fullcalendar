@@ -87,6 +87,18 @@ class yii2fullcalendar extends elWidget
     private $_pluginName = 'fullCalendar';
 
     /**
+     * The javascript function to us as en eventRender callback
+     * @var string the javascript code that implements the eventRender function
+     */
+    public $eventRender = "";
+
+    /**
+     * The javascript function to us as en eventAfterRender callback
+     * @var string the javascript code that implements the eventAfterRender function
+     */
+    public $eventAfterRender = "";
+
+    /**
      * Initializes the widget.
      * If you override this method, make sure you call the parent implementation first.
      */
@@ -181,6 +193,12 @@ class yii2fullcalendar extends elWidget
         $options['loading'] = new JsExpression("function(isLoading, view ) {
                 $('#{$id}').find('.fc-loading').toggle(isLoading);
         }");
+        if ($this->eventRender){
+            $options['eventRender'] = new JsExpression($this->eventRender);
+        }
+        if ($this->eventAfterRender){
+            $options['eventAfterRender'] = new JsExpression($this->eventAfterRender);
+        }
         $options = array_merge($options, $this->clientOptions);
         return Json::encode($options);
     }
