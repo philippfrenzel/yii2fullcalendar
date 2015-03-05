@@ -99,6 +99,12 @@ class yii2fullcalendar extends elWidget
     public $eventAfterRender = "";
 
     /**
+     * The javascript function to us as en eventAfterAllRender callback
+     * @var string the javascript code that implements the eventAfterAllRender function
+     */
+    public $eventAfterAllRender = "";
+
+    /**
      * Initializes the widget.
      * If you override this method, make sure you call the parent implementation first.
      */
@@ -198,6 +204,9 @@ class yii2fullcalendar extends elWidget
         }
         if ($this->eventAfterRender){
             $options['eventAfterRender'] = new JsExpression($this->eventAfterRender);
+        }
+        if ($this->eventAfterAllRender){
+            $options['eventAfterAllRender'] = new JsExpression($this->eventAfterAllRender);
         }
         $options = array_merge($options, $this->clientOptions);
         return Json::encode($options);
