@@ -150,8 +150,10 @@ class yii2fullcalendar extends elWidget
             $this->clientOptions['events'] = $this->ajaxEvents;
         }
 
-        if(is_array($this->header))
+        if(is_array($this->header) && isset($this->clientOptions['header']))
         {
+            $this->clientOptions['header'] = array_merge($this->header,$this->clientOptions['header']);
+        } else {
             $this->clientOptions['header'] = $this->header;
         }
 
