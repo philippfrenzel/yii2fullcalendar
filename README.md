@@ -97,8 +97,8 @@ public function actionJsoncalendar($start=NULL,$end=NULL,$_=NULL){
       $Event = new \yii2fullcalendar\models\Event();
       $Event->id = $time->id;
       $Event->title = $time->categoryAsString;
-      $Event->start = date('Y-m-d\TH:m:s\Z',strtotime($time->date_start.' '.$time->time_start));
-      $Event->end = date('Y-m-d\TH:m:s\Z',strtotime($time->date_start.' '.$time->time_end));
+      $Event->start = date('Y-m-d\TH:i:s\Z',strtotime($time->date_start.' '.$time->time_start));
+      $Event->end = date('Y-m-d\TH:i:s\Z',strtotime($time->date_start.' '.$time->time_end));
       $events[] = $Event;
     }
 
