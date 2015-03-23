@@ -98,7 +98,7 @@ public function actionJsoncalendar($start=NULL,$end=NULL,$_=NULL){
       $Event->id = $time->id;
       $Event->title = $time->categoryAsString;
       $Event->start = date('Y-m-d\TH:i:s\Z',strtotime($time->date_start.' '.$time->time_start));
-      $Event->end = date('Y-m-d\TH:i:s\Z',strtotime($time->date_start.' '.$time->time_end));
+      $Event->end = date('Y-m-d\TH:i:s\Z',strtotime($time->date_end.' '.$time->time_end));
       $events[] = $Event;
     }
 
