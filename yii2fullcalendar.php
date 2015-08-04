@@ -28,6 +28,7 @@ class yii2fullcalendar extends elWidget
     */
     public $options = [
         'class' => 'fullcalendar',
+        'theme' => true,
     ];
 
     /**
@@ -114,9 +115,13 @@ class yii2fullcalendar extends elWidget
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
         }
-         //checks for the element id
+        //checks for the class
         if (!isset($this->options['class'])) {
             $this->options['class'] = 'fullcalendar';
+        }
+        //checks for the theme
+        if (!isset($this->options['theme'])) {
+            $this->options['theme'] = true;
         }
 
         parent::init();
@@ -152,6 +157,12 @@ class yii2fullcalendar extends elWidget
         /** @var \yii\web\AssetBundle $assetClass */
         $assets = CoreAsset::register($view);
 
+        //by default we load the jui theme, but if you like you can set the theme to false and nothing gets loaded....
+        if($this->options['theme'] == true)
+        {
+            ThemeAsset::register($view);
+        }
+
         if (isset($this->options['lang'])) 
         {
             $assets->language = $this->options['lang'];
@@ -176,7 +187,7 @@ class yii2fullcalendar extends elWidget
         }
 
         $cleanOptions = $this->getClientOptions();
-        $js[] = "$('#$id').fullCalendar($cleanOptions);";
+        $js[] = "jQuery('#$id').fullCalendar($cleanOptions);";
 
         //lets check if we have an event for the calendar...
         if(count($this->events)>0)
@@ -185,7 +196,7 @@ class yii2fullcalendar extends elWidget
             {
                 $jsonEvent = Json::encode($event);
                 $isSticky = $this->stickyEvents;
-                $js[] = "$('#$id').fullCalendar('renderEvent',$jsonEvent,$isSticky);";
+                $js[] = "jQuery('#$id').fullCalendar('renderEvent',$jsonEvent,$isSticky);";
             }
         }
         
@@ -199,7 +210,7 @@ class yii2fullcalendar extends elWidget
     {
         $id = $this->options['id'];
         $options['loading'] = new JsExpression("function(isLoading, view ) {
-                $('#{$id}').find('.fc-loading').toggle(isLoading);
+                jQuery('#{$id}').find('.fc-loading').toggle(isLoading);
         }");
         if ($this->eventRender){
             $options['eventRender'] = new JsExpression($this->eventRender);
