@@ -159,7 +159,7 @@ class yii2fullcalendar extends elWidget
         
         if ($this->googleCalendar) 
         {
-            $asset->googleCalendar = $this->googleCalendar;
+            $assets->googleCalendar = $this->googleCalendar;
         }
 
         $js = array();
