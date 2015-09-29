@@ -48,13 +48,13 @@ Quickstart Looks like this:
   $Event = new \yii2fullcalendar\models\Event();
   $Event->id = 1;
   $Event->title = 'Testing';
-  $Event->start = date('Y-m-d\TH:m:s\Z');
+  $Event->start = date('Y-m-d\TH:i:s\Z');
   $events[] = $Event;
 
   $Event = new \yii2fullcalendar\models\Event();
   $Event->id = 2;
   $Event->title = 'Testing';
-  $Event->start = date('Y-m-d\TH:m:s\Z',strtotime('tomorrow 6am'));
+  $Event->start = date('Y-m-d\TH:i:s\Z',strtotime('tomorrow 6am'));
   $events[] = $Event;
 
   ?>
