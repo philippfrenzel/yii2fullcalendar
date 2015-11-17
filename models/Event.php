@@ -49,6 +49,12 @@ class Event extends Model
   public $end;
   
   /**
+   * Day of Week settings for repeating events. Enter the numerical days of the week ex. [1,4] would repeat on Monday and Thursday.
+   * @var array
+   */
+   public $dow;
+  
+  /**
    * A URL that will be visited when this event is clicked by the user. For more information on controlling this behavior, see the eventClick callback.
    * @var [type]
    */
