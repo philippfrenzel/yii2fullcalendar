@@ -64,10 +64,11 @@ class yii2fullcalendar extends elWidget
     public $ajaxEvents = NULL;
     
     /**
-     * wheather the events will be "sticky" on pagination or not
+     * wheather the events will be "sticky" on pagination or not. Uncomment if you are loading events
+	 * separately from the initial options.
      * @var boolean
      */
-    public $stickyEvents = true;
+    //public $stickyEvents = true;
 
     /**
      * tell the calendar, if you like to render google calendar events within the view
@@ -189,16 +190,20 @@ class yii2fullcalendar extends elWidget
         $cleanOptions = $this->getClientOptions();
         $js[] = "jQuery('#$id').fullCalendar($cleanOptions);";
 
-        //lets check if we have an event for the calendar...
-        if(count($this->events)>0)
-        {
-            foreach($this->events AS $event)
-            {
-                $jsonEvent = Json::encode($event);
-                $isSticky = $this->stickyEvents;
-                $js[] = "jQuery('#$id').fullCalendar('renderEvent',$jsonEvent,$isSticky);";
-            }
-        }
+        /**
+		* Loads events separately from the calendar creation. Uncomment if you need this functionality.
+		*
+		* lets check if we have an event for the calendar...
+        * if(count($this->events)>0)
+        * {
+        *    foreach($this->events AS $event)
+        *    {
+        *        $jsonEvent = Json::encode($event);
+        *        $isSticky = $this->stickyEvents;
+        *        $js[] = "jQuery('#$id').fullCalendar('renderEvent',$jsonEvent,$isSticky);";
+        *    }
+        * }
+		*/
         
         $view->registerJs(implode("\n", $js),View::POS_READY);
     }
@@ -221,6 +226,11 @@ class yii2fullcalendar extends elWidget
         if ($this->eventAfterAllRender){
             $options['eventAfterAllRender'] = new JsExpression($this->eventAfterAllRender);
         }
+		//checks for events and loads them into the options. Comment out if loading separately.
+		if (count($this->events)>0)
+		{
+			$options['events'] = $this->events;
+		}
         $options = array_merge($options, $this->clientOptions);
         return Json::encode($options);
     }
