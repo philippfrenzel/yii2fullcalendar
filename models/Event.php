@@ -23,6 +23,12 @@ class Event extends Model
    * @var string
    */
   public $title;
+  
+  /**
+   * The description text for an event
+   * @var string
+   */
+   public $description
 
   /**
    * Whether an event occurs at a specific time-of-day. This property affects whether an event's time is shown. Also, in the agenda views, determines if it is displayed in the "all-day" section.
