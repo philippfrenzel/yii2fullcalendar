@@ -73,7 +73,7 @@ If you wanna use ajax loader, this could look like this:
 ```php
 <?= yii2fullcalendar\yii2fullcalendar::widget([
       'options' => [
-        'language' => 'de',
+        'lang' => 'de',
         //... more options to be defined here!
       ],
       'ajaxEvents' => Url::to(['/timetrack/default/jsoncalendar'])
