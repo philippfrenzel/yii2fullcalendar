@@ -27,9 +27,13 @@ class yii2fullcalendar extends elWidget
     * If a value is null, the corresponding attribute will not be rendered.
     */
     public $options = [
-        'class' => 'fullcalendar',
-        'theme' => true,
+        'class' => 'fullcalendar'
     ];
+    
+    /**
+     * @var bool $theme default is true and will render the jui theme for the calendar
+     */
+    public $theme = true;
 
     /**
      * @var array clientOptions the HTML attributes for the widget container tag.
@@ -120,10 +124,6 @@ class yii2fullcalendar extends elWidget
         if (!isset($this->options['class'])) {
             $this->options['class'] = 'fullcalendar';
         }
-        //checks for the theme
-        if (!isset($this->options['theme'])) {
-            $this->options['theme'] = true;
-        }
 
         parent::init();
     }
@@ -159,7 +159,7 @@ class yii2fullcalendar extends elWidget
         $assets = CoreAsset::register($view);
 
         //by default we load the jui theme, but if you like you can set the theme to false and nothing gets loaded....
-        if($this->options['theme'] == true)
+        if($this->theme == true)
         {
             ThemeAsset::register($view);
         }
@@ -191,9 +191,9 @@ class yii2fullcalendar extends elWidget
         $js[] = "jQuery('#$id').fullCalendar($cleanOptions);";
 
         /**
-		* Loads events separately from the calendar creation. Uncomment if you need this functionality.
-		*
-		* lets check if we have an event for the calendar...
+	* Loads events separately from the calendar creation. Uncomment if you need this functionality.
+	*
+	* lets check if we have an event for the calendar...
         * if(count($this->events)>0)
         * {
         *    foreach($this->events AS $event)
@@ -203,7 +203,7 @@ class yii2fullcalendar extends elWidget
         *        $js[] = "jQuery('#$id').fullCalendar('renderEvent',$jsonEvent,$isSticky);";
         *    }
         * }
-		*/
+	*/
         
         $view->registerJs(implode("\n", $js),View::POS_READY);
     }
