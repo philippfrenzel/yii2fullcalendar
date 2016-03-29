@@ -11,7 +11,6 @@
 namespace yii2fullcalendar;
 
 use Yii;
-use yii\base\Model;
 use yii\web\View;
 use yii\helpers\Html;
 use yii\helpers\Json;
