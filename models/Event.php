@@ -49,6 +49,14 @@ class Event extends Model
   public $end;
   
   /**
+   * The range of dates that an event is to show on the calendar.
+   * Used with a function to check the dates in eventRender against the range and only render
+   * the dates that fall within the range.
+   * @var range
+   */
+  public $ranges;
+
+  /**
    * Day of Week settings for repeating events. Enter the numerical days of the week ex. [1,4] would repeat on Monday and Thursday.
    * @var array
    */
