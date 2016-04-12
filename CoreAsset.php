@@ -41,7 +41,7 @@ class CoreAsset extends AssetBundle
      * @var array
      */
     public $css = [
-        'fullcalendar.css',
+        'fullcalendar.min.css',
     ];
 
     /**
