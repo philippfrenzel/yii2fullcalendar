@@ -29,8 +29,8 @@ class PrintAsset extends AssetBundle
      * options for the css file beeing published
      * @var [type]
      */
-    /*public $cssOptions = [
+    public $cssOptions = [
     	'media' => 'print'
-    ];*/
+    ];
 }
 
