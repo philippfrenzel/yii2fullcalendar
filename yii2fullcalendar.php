@@ -185,6 +185,11 @@ class yii2fullcalendar extends elWidget
         } else {
             $this->clientOptions['header'] = $this->header;
         }
+	
+	// clear existing calendar display before rendering new fullcalendar instance
+	// this step is important when using the fullcalendar widget with pjax
+	$js[] = "var loading_container = jQuery('#$id .fc-loading');"; // take backup of loading container
+	$js[] = "jQuery('#$id').empty().append(loading_container);"; // remove/empty the calendar container and append loading container bakup
 
         $cleanOptions = $this->getClientOptions();
         $js[] = "jQuery('#$id').fullCalendar($cleanOptions);";
