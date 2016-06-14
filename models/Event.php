@@ -136,7 +136,7 @@ class Event extends Model
   public function rules()
   {
     return [
-      ['id', 'integer'],
+      [['id', 'resourceId'], 'integer'],
       ['title, allDay, start, end, url, className, source, color, backgroundColor, borderColor, textColor', 'safe'],
       ['editable, startEditable, durationEditable', 'boolean'],
     ];
