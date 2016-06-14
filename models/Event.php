@@ -127,6 +127,11 @@ class Event extends Model
    * @var [type]
    */
   public $textColor;
+  
+  /**
+   * the unique resource for the event
+   */
+  public $resourceId;
 
   public function rules()
   {
