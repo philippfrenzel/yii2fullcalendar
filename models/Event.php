@@ -127,18 +127,18 @@ class Event extends Model
    * @var [type]
    */
   public $textColor;
-  
-  /**
-   * the unique resource for the event
-   */
-  public $resourceId;
+
+  public $icon;
 
   public function rules()
   {
     return [
-      [['id', 'resourceId'], 'integer'],
-      ['title, allDay, start, end, url, className, source, color, backgroundColor, borderColor, textColor', 'safe'],
-      ['editable, startEditable, durationEditable', 'boolean'],
+      [['id'], 'integer'],
+      [['url'],'url'],
+      [['title'], 'trim'],
+      [['description'], 'string'],
+      [['title, allDay, start, end, url, className, source, color, backgroundColor, borderColor, textColor','icon','dow','description'], 'safe'],
+      [['editable, startEditable, durationEditable'], 'boolean'],
     ];
   }
 
