@@ -57,7 +57,7 @@ class yii2fullcalendar extends elWidget
     public $header = [
         'center'=>'title',
         'left'=>'prev,next today',        
-        'right'=>'month,agendaWeek'
+        'right'=>'month,agendaWeek,agendaDay'
     ];
 
     /**
@@ -77,7 +77,7 @@ class yii2fullcalendar extends elWidget
      * tell the calendar, if you like to render google calendar events within the view
      * @var boolean
      */
-    public $googleCalendar = false;
+    public $googleCalendar = true;
 
     /**
      * the text that will be displayed on changing the pages
@@ -137,12 +137,8 @@ class yii2fullcalendar extends elWidget
         if (!isset($this->options['class'])) {
             $this->options['class'] = 'fullcalendar';
         }
-        
-        echo Html::beginTag('div', $this->options) . "\n";
-            echo Html::beginTag('div',['class'=>'fc-loading','style' => 'display:none;']);
-                echo Html::encode($this->loading);
-            echo Html::endTag('div')."\n";
-        echo Html::endTag('div')."\n";
+        echo Html::tag('div',$this->loading,['id' => 'loading']);
+        echo Html::tag('div','',$this->options);
         $this->registerPlugin();
     }
 
@@ -154,11 +150,18 @@ class yii2fullcalendar extends elWidget
         $id = $this->options['id'];
         $view = $this->getView();
 
+        $view->registerCss("#loading {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }");
+
         /** @var \yii\web\AssetBundle $assetClass */
         $assets = CoreAsset::register($view);
 
         //by default we load the jui theme, but if you like you can set the theme to false and nothing gets loaded....
-        if($this->theme == true)
+        /*if($this->theme == true)
         {
             ThemeAsset::register($view);
         }
@@ -171,13 +174,13 @@ class yii2fullcalendar extends elWidget
         if ($this->googleCalendar) 
         {
             $assets->googleCalendar = $this->googleCalendar;
-        }
+        }*/
 
         $js = array();
 
-        if($this->ajaxEvents != NULL){
+        /*if($this->ajaxEvents != NULL){
             $this->clientOptions['events'] = $this->ajaxEvents;
-        }
+        }*/
 
         if(is_array($this->header) && isset($this->clientOptions['header']))
         {
@@ -188,28 +191,53 @@ class yii2fullcalendar extends elWidget
 	
 	// clear existing calendar display before rendering new fullcalendar instance
 	// this step is important when using the fullcalendar widget with pjax
-	$js[] = "var loading_container = jQuery('#$id .fc-loading');"; // take backup of loading container
-	$js[] = "jQuery('#$id').empty().append(loading_container);"; // remove/empty the calendar container and append loading container bakup
+	// $js[] = "var loading_container = jQuery('#fc-loading-div');"; // take backup of loading container
+	// $js[] = "jQuery('#$id').empty().append(loading_container);"; // remove/empty the calendar container and append loading container bakup
 
         $cleanOptions = $this->getClientOptions();
-        $js[] = "jQuery('#$id').fullCalendar($cleanOptions);";
+        $js = "jQuery('#$id').fullCalendar($cleanOptions);";
 
-        /**
-	* Loads events separately from the calendar creation. Uncomment if you need this functionality.
-	*
-	* lets check if we have an event for the calendar...
-        * if(count($this->events)>0)
-        * {
-        *    foreach($this->events AS $event)
-        *    {
-        *        $jsonEvent = Json::encode($event);
-        *        $isSticky = $this->stickyEvents;
-        *        $js[] = "jQuery('#$id').fullCalendar('renderEvent',$jsonEvent,$isSticky);";
-        *    }
-        * }
-	*/
+        /*$ajaxjs = "$('#{$id}').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            // defaultDate: '2016-06-12',
+            editable: true,
+            eventLimit: true, 
+            events: {
+                url: 'http://www.cookingshop.com/site/jsoncalendar',
+            },
+            loading: function(bool) {
+                $('#loading').toggle(bool);
+            }
+        });";*/
+
+       /* $gcaljs = "
+        $('#{$id}').fullCalendar({
+
+            // THIS KEY WON'T WORK IN PRODUCTION!!!
+            // To make your own Google API key, follow the directions here:
+            // http://fullcalendar.io/docs/google_calendar/
+            googleCalendarApiKey: 'AIzaSyCo5WsTFwpZTkEWmZ-fdthOr71fABBgTkU',
         
-        $view->registerJs(implode("\n", $js),View::POS_READY);
+            // US Holidays
+            events: 'en.usa#holiday@group.v.calendar.google.com',
+            
+            eventClick: function(event) {
+                // opens events in a popup window
+                window.open(event.url, 'gcalevent', 'width=700,height=600');
+                return false;
+            },
+            
+            loading: function(bool) {
+                $('#loading').toggle(bool);
+            }
+            
+        });";*/
+
+        $view->registerJs($js,View::POS_READY);
     }
 
     /**
@@ -219,18 +247,15 @@ class yii2fullcalendar extends elWidget
     {
         $id = $this->options['id'];
         $options['loading'] = new JsExpression("function(isLoading, view ) {
-                jQuery('#{$id}').find('.fc-loading').toggle(isLoading);
+                if(isLoading){
+                    $('#loading').show();
+                    $('#{$id}').hide();
+                }else{
+                    $('#loading').hide();
+                    $('#{$id}').show();
+                }
+
         }");
-        if ($this->eventRender){
-            $options['eventRender'] = new JsExpression($this->eventRender);
-        }
-        if ($this->eventAfterRender){
-            $options['eventAfterRender'] = new JsExpression($this->eventAfterRender);
-        }
-        if ($this->eventAfterAllRender){
-            $options['eventAfterAllRender'] = new JsExpression($this->eventAfterAllRender);
-        }
-		//checks for events and loads them into the options. Comment out if loading separately.
 		if (count($this->events)>0)
 		{
 			$options['events'] = $this->events;

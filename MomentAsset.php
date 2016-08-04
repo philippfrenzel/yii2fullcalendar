@@ -15,14 +15,14 @@ class MomentAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = '@bower/moment';
+    public $sourcePath = '@vendor/philippfrenzel/yii2fullcalendar/dist';
 
     /**
      * [$js description]
      * @var array
      */
     public $js = [
-        'moment.js'
+        'lib/moment.min.js'
     ];
 
 }

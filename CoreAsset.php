@@ -16,32 +16,14 @@ class CoreAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = '@bower/fullcalendar/dist';
+    public $sourcePath = '@vendor/philippfrenzel/yii2fullcalendar/dist';
 
-    /**
-     * the language the calender will be displayed in
-     * @var string ISO2 code for the wished display language
-     */
-    public $language = NULL;
-
-    /**
-     * [$autoGenerate description]
-     * @var boolean
-     */
-    public $autoGenerate = true;
-
-    /**
-     * tell the calendar, if you like to render google calendar events within the view
-     * @var boolean
-     */
-    public $googleCalendar = false;
-    
     /**
      * [$css description]
      * @var array
      */
     public $css = [
-        'fullcalendar.min.css',
+        'fullcalendar.css',
     ];
 
     /**
@@ -50,7 +32,7 @@ class CoreAsset extends AssetBundle
      */
     public $js = [
         'fullcalendar.js',        
-        'lang-all.js',
+        'gcal.js',
     ];
     
     /**
@@ -62,24 +44,5 @@ class CoreAsset extends AssetBundle
         'yii2fullcalendar\MomentAsset',
         'yii2fullcalendar\PrintAsset'
     ];
-
-    /**
-     * @inheritdoc
-     */
-    public function registerAssetFiles($view)
-    {
-        $language = $this->language ? $this->language : Yii::$app->language;
-        if (strtoupper($language) != 'EN-US') 
-        {
-            $this->js[] = "lang/{$language}.js";
-        }
-
-        if($this->googleCalendar)
-        {
-            $this->js[] = 'gcal.js';
-        }
-
-        parent::registerAssetFiles($view);
-    }
 
 }
