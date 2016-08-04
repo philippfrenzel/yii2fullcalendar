@@ -140,6 +140,7 @@ class yii2fullcalendar extends elWidget
         echo Html::tag('div',$this->loading,['id' => 'loading']);
         echo Html::tag('div','',$this->options);
         $this->registerPlugin();
+        echo $this->getModal();
     }
 
     /**
@@ -262,6 +263,26 @@ class yii2fullcalendar extends elWidget
 		}
         $options = array_merge($options, $this->clientOptions);
         return Json::encode($options);
+    }
+
+    protected function getModal(){
+        return '<div id="calModal" class="modal fade" role="dialog">
+            <div class="vertical-alignment-helper">
+                <div class="modal-dialog modal-lg vertical-align-center">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 id="modal-title" class="modal-title"></h4>
+                        </div>
+                        <div id="modalContent"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>';
     }
 
 }

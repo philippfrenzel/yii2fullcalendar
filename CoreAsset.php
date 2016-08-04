@@ -24,6 +24,7 @@ class CoreAsset extends AssetBundle
      */
     public $css = [
         'fullcalendar.css',
+        'calDisplay.css',
     ];
 
     /**
@@ -33,6 +34,7 @@ class CoreAsset extends AssetBundle
     public $js = [
         'fullcalendar.js',        
         'gcal.js',
+        'calFunct.js',
     ];
     
     /**
