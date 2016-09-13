@@ -163,9 +163,9 @@ class yii2fullcalendar extends elWidget
             ThemeAsset::register($view);
         }
 
-        if (isset($this->options['lang'])) 
+        if (isset($this->options['locale'])) 
         {
-            $assets->language = $this->options['lang'];
+            $assets->language = $this->options['locale'];
         }        
         
         if ($this->googleCalendar) 
