@@ -39,9 +39,11 @@ class yii2fullcalendar extends elWidget
      */
     public $clientOptions = [
         'weekends' => true,
-        'default' => 'month',
+        //'default' => 'month',
         'editable' => false,
     ];
+	
+	public $defaultView = 'month';
 
     /**
     * Holds an array of Event Objects
@@ -163,9 +165,9 @@ class yii2fullcalendar extends elWidget
             ThemeAsset::register($view);
         }
 
-        if (isset($this->options['locale'])) 
+        if (isset($this->options['lang'])) 
         {
-            $assets->language = $this->options['locale'];
+            $assets->language = $this->options['lang'];
         }        
         
         if ($this->googleCalendar) 
@@ -184,6 +186,11 @@ class yii2fullcalendar extends elWidget
             $this->clientOptions['header'] = array_merge($this->header,$this->clientOptions['header']);
         } else {
             $this->clientOptions['header'] = $this->header;
+        }
+		
+		if(isset($this->defaultView))
+        {
+            $this->clientOptions['defaultView'] = $this->defaultView;
         }
 	
 	// clear existing calendar display before rendering new fullcalendar instance
