@@ -50,7 +50,7 @@ class CoreAsset extends AssetBundle
      */
     public $js = [
         'fullcalendar.js',        
-        'lang-all.js',
+        'local-all.js',
     ];
     
     /**
