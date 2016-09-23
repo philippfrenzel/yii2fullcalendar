@@ -39,11 +39,13 @@ class yii2fullcalendar extends elWidget
      */
     public $clientOptions = [
         'weekends' => true,
-        //'default' => 'month',
         'editable' => false,
     ];
 	
-	public $defaultView = 'month';
+    /**
+     * @var string defaultView will define which view renderer will initially be used for displaying calendar events 
+     */
+    public $defaultView = 'month';
 
     /**
     * Holds an array of Event Objects
@@ -188,7 +190,7 @@ class yii2fullcalendar extends elWidget
             $this->clientOptions['header'] = $this->header;
         }
 		
-		if(isset($this->defaultView))
+	if(isset($this->defaultView) && !isset($this->clientOptions['defaultView']))
         {
             $this->clientOptions['defaultView'] = $this->defaultView;
         }
