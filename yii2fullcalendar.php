@@ -266,7 +266,7 @@ class yii2fullcalendar extends elWidget
     }
 
     protected function getModal(){
-        return '<div id="calModal" class="modal fade" role="dialog">
+        return '<div id="calModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
             <div class="vertical-alignment-helper">
                 <div class="modal-dialog modal-lg vertical-align-center">
                     <!-- Modal content-->
