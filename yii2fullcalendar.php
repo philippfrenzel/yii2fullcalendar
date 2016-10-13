@@ -112,6 +112,13 @@ class yii2fullcalendar extends elWidget
      * @var string the javascript code that implements the eventAfterAllRender function
      */
     public $eventAfterAllRender = "";
+	
+     /**
+     * The javascript function to us as en eventDrop callback
+     * @var string the javascript code that implements the eventDrop function
+     */
+    
+    public $eventDrop = "";
 
     /**
      * Initializes the widget.
@@ -238,6 +245,10 @@ class yii2fullcalendar extends elWidget
         }
         if ($this->eventAfterAllRender){
             $options['eventAfterAllRender'] = new JsExpression($this->eventAfterAllRender);
+        }
+	    
+        if ($this->eventDrop){
+            $options['eventDrop'] = new JsExpression($this->eventDrop);
         }
 		//checks for events and loads them into the options. Comment out if loading separately.
 		if (count($this->events)>0)
