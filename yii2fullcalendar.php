@@ -121,6 +121,18 @@ class yii2fullcalendar extends elWidget
     public $eventDrop = "";
 
     /**
+     * A js callback that triggered when the user clicks an event.
+     * @var string the javascript code that implements the eventClick function
+     */
+    public $eventClick = "";
+
+    /**
+     * A js callback that will fire after a selection is made.
+     * @var string the javascript code that implements the select function
+     */
+    public $select = "";
+
+    /**
      * Initializes the widget.
      * If you override this method, make sure you call the parent implementation first.
      */
@@ -249,6 +261,13 @@ class yii2fullcalendar extends elWidget
 	    
         if ($this->eventDrop){
             $options['eventDrop'] = new JsExpression($this->eventDrop);
+        }
+
+        if ($this->select){
+            $options['select'] = new JsExpression($this->select);
+        }
+        if ($this->eventClick){
+            $options['eventClick'] = new JsExpression($this->eventClick);
         }
 		//checks for events and loads them into the options. Comment out if loading separately.
 		if (count($this->events)>0)
