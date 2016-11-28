@@ -196,7 +196,8 @@ class yii2fullcalendar extends elWidget
 	// $js[] = "jQuery('#$id').empty().append(loading_container);"; // remove/empty the calendar container and append loading container bakup
 
         $cleanOptions = $this->getClientOptions();
-        $js = "jQuery('#$id').fullCalendar($cleanOptions);";
+        $js[] = "jQuery('#$id').fullCalendar($cleanOptions);";
+        $js[] = PHP_EOL."yii.reloadableScripts.push('https://www.googleapis.com/calendar/v3/calendars/*');";
 
         /*$ajaxjs = "$('#{$id}').fullCalendar({
             header: {
@@ -238,7 +239,7 @@ class yii2fullcalendar extends elWidget
             
         });";*/
 
-        $view->registerJs($js,View::POS_READY);
+        $view->registerJs(implode(PHP_EOL, $js),View::POS_READY);
     }
 
     /**
