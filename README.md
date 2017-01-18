@@ -54,6 +54,10 @@ Quickstart Looks like this:
   $Event->id = 1;
   $Event->title = 'Testing';
   $Event->start = date('Y-m-d\TH:i:s\Z');
+  $event->nonstandard = [
+    'field1' => 'Something I want to be included in object #1',
+    'field2' => 'Something I want to be included in object #2',
+  ],
   $events[] = $Event;
 
   $Event = new \yii2fullcalendar\models\Event();
@@ -63,13 +67,13 @@ Quickstart Looks like this:
   $events[] = $Event;
 
   ?>
-  
+
   <?= \yii2fullcalendar\yii2fullcalendar::widget(array(
       'events'=> $events,
   ));
 ```
 
-Note, that this will only view the events without any detailed view or option to add a new event.. etc.
+Note, that this will only view the events without any detailed view or option to add a new event.. etc. You can add non-standard fields via the non-standard fields array, for which you can pass any key/value pair. 
 
 AJAX Usage
 ==========
