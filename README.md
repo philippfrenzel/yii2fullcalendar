@@ -39,6 +39,7 @@ And ensure, that you have the following plugin installed global:
 Changelog
 ---------
 
+19-01-2017 Updated to include non-standard fields
 29-11-2014 Updated to latest 2.2.3 Version of the library
 
 Usage
@@ -54,6 +55,10 @@ Quickstart Looks like this:
   $Event->id = 1;
   $Event->title = 'Testing';
   $Event->start = date('Y-m-d\TH:i:s\Z');
+  $event->nonstandard = [
+    'field1' => 'Something I want to be included in object #1',
+    'field2' => 'Something I want to be included in object #2',
+  ],
   $events[] = $Event;
 
   $Event = new \yii2fullcalendar\models\Event();
@@ -63,13 +68,20 @@ Quickstart Looks like this:
   $events[] = $Event;
 
   ?>
-  
+
   <?= \yii2fullcalendar\yii2fullcalendar::widget(array(
       'events'=> $events,
   ));
 ```
 
 Note, that this will only view the events without any detailed view or option to add a new event.. etc.
+
+Non-Standard fields
+===================
+
+You can add non-standard fields via the non-standard fields array, for which you can pass any key/value pair, as described in the [Event Fields](https://fullcalendar.io/docs/event_data/Event_Object/) documentation.
+
+So, using the Quick Start example above, you can read `field1` and `fields2` in your JavaScript using notation similar to `event.nonstandard.field1` and `event.nonstandard.field2`.
 
 AJAX Usage
 ==========
