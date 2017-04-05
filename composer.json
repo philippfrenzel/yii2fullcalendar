@@ -21,7 +21,8 @@
 	"require": {
 		"php": ">=5.4.0",
   		"yiisoft/yii2" : "*",
-  		"yiisoft/yii2-jui": "*"
+  		"yiisoft/yii2-jui": "*",
+ 		"bower-asset/fullcalendar" : "~3.0"
 	},
 	"require-dev": {
 	},
@@ -29,7 +30,13 @@
 		"psr-4": { 
 			"yii2fullcalendar\\": "" 
 		}
-	}
+	},
+	"extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
 }
 
 
