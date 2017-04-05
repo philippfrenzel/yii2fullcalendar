@@ -16,17 +16,19 @@
 	"support": {
 		"source": "https://github.com/philippfrenzel/yii2fullcalendar"
 	},
-	"minimum-stability": "stable",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
 	"require": {
 		"php": ">=5.4.0",
 		"yiisoft/yii2" : "*",
 		"yiisoft/yii2-jui": "*",
-		"bower-asset/fullcalendar" : "2.*"
+		"bower-asset/fullcalendar" : "~2.0"
 	},
 	"require-dev": {
-		"codeception/codeception": "*"
 	},
 	"autoload": {
 		"psr-4": { "yii2fullcalendar\\": "" }
 	}
 }
+
+
