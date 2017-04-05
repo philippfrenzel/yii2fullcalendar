@@ -19,6 +19,10 @@
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"require": {
+		"php": ">=5.4.0",
+  		"yiisoft/yii2" : "*",
+  		"yiisoft/yii2-jui": "*",
+ 		"bower-asset/fullcalendar" : "~3.0"
 	},
 	"require-dev": {
 	},
