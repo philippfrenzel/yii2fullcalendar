@@ -1,5 +1,5 @@
 {
-	"name": "philippfrenzel/yii2fullcalendar",
+	"name": "rjgoolsby/yii2fullcalendar",
 	"description": "Yii2 fullcalendar Widgets",
 	"keywords": ["yii2", "fullcalendar"],
 	"homepage": "http://www.frenzel.net/",
@@ -14,7 +14,7 @@
 		}
 	],
 	"support": {
-		"source": "https://github.com/philippfrenzel/yii2fullcalendar"
+		"source": "https://github.com/rjgoolsby/yii2fullcalendar"
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,
