@@ -19,14 +19,13 @@
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"require": {
-		"php": ">=5.4.0",
-		"yiisoft/yii2" : "*",
-		"yiisoft/yii2-jui": "*"
 	},
 	"require-dev": {
 	},
 	"autoload": {
-		"psr-4": { "yii2fullcalendar\\": "" }
+		"psr-4": { 
+			"yii2fullcalendar\\": "" 
+		}
 	}
 }
 
