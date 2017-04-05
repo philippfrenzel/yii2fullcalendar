@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 
 /**
  * @link http://www.frenzel.net/
- * @author Philipp Frenzel <philipp@frenzel.net> 
+ * @author Philipp Frenzel <philipp@frenzel.net>
  */
 
 class PrintAsset extends AssetBundle
@@ -15,8 +15,8 @@ class PrintAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = '@vendor/philippfrenzel/yii2fullcalendar/dist';
-    
+    public $sourcePath = '@vendor/ptech/yii2fullcalendar/dist';
+
     /**
      * [$css description]
      * @var array
@@ -33,4 +33,3 @@ class PrintAsset extends AssetBundle
     	'media' => 'print'
     ];
 }
-

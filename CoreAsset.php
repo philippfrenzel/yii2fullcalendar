@@ -7,7 +7,7 @@ use yii\web\AssetBundle;
 
 /**
  * @link http://www.frenzel.net/
- * @author Philipp Frenzel <philipp@frenzel.net> 
+ * @author Philipp Frenzel <philipp@frenzel.net>
  */
 
 class CoreAsset extends AssetBundle
@@ -16,7 +16,7 @@ class CoreAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = '@vendor/philippfrenzel/yii2fullcalendar/dist';
+    public $sourcePath = '@vendor/ptech/yii2fullcalendar/dist';
 
     /**
      * [$css description]
@@ -32,11 +32,11 @@ class CoreAsset extends AssetBundle
      * @var array
      */
     public $js = [
-        'fullcalendar.js',        
+        'fullcalendar.js',
         'gcal.js',
         'calFunct.js',
     ];
-    
+
     /**
      * [$depends description]
      * @var array
