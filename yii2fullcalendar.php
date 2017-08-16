@@ -119,6 +119,13 @@ class yii2fullcalendar extends elWidget
      */
 
     public $eventDrop = "";
+	
+     /**
+     * The javascript function to us as en eventResize callback
+     * @var string the javascript code that implements the eventResize function
+     */
+
+    public $eventResize = "";
 
     /**
      * A js callback that triggered when the user clicks an event.
@@ -262,6 +269,10 @@ class yii2fullcalendar extends elWidget
         if ($this->eventDrop){
             $options['eventDrop'] = new JsExpression($this->eventDrop);
         }
+	    
+        if ($this->eventResize){
+            $options['eventResize'] = new JsExpression($this->eventResize);
+        }	    
 
         if ($this->select){
             $options['select'] = new JsExpression($this->select);
