@@ -58,7 +58,7 @@ Quickstart Looks like this:
   $event->nonstandard = [
     'field1' => 'Something I want to be included in object #1',
     'field2' => 'Something I want to be included in object #2',
-  ],
+  ];
   $events[] = $Event;
 
   $Event = new \yii2fullcalendar\models\Event();
