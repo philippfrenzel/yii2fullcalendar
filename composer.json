@@ -20,24 +20,12 @@
 	"require": {
 		"yiisoft/yii2" : "*",
 		"yiisoft/yii2-jui": "*",
-		"bower-asset/punycode": "^1.3.0 !=1.3.2",
-        	"bower-asset/jquery": "^1.12 !=1.12.4",
-		"bower-asset/fullcalendar" : "*"
+		"bower-asset/fullcalendar" : "3.5.1"
 	},
 	"require-dev": {
 		"codeception/codeception": "*"
 	},
 	"autoload": {
 		"psr-4": { "yii2fullcalendar\\": "" }
-	},
-	"config": {
-		"fxp-asset": {
-			"installer-paths": {
-				"bower-asset-library": "vendor/bower"
-			},
-			"ignore-files": {
-				"bower-asset/fullcalendar": false
-			}
-		}
 	}
 }
