@@ -27,5 +27,15 @@
 	},
 	"autoload": {
 		"psr-4": { "yii2fullcalendar\\": "" }
+	},
+	"config": {
+		"fxp-asset": {
+			"installer-paths": {
+				"bower-asset-library": "vendor/bower"
+			},
+			"ignore-files": {
+				"bower-asset/fullcalendar": false
+			}
+		}
 	}
 }
