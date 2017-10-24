@@ -87,13 +87,15 @@ AJAX Usage
 ==========
 If you wanna use ajax loader, this could look like this:
 
+# 20171023 ajaxEvents are replaced by events - pls. check fullcalendar io documentation for details
+
 ```php
 <?= yii2fullcalendar\yii2fullcalendar::widget([
       'options' => [
         'lang' => 'de',
         //... more options to be defined here!
       ],
-      'ajaxEvents' => Url::to(['/timetrack/default/jsoncalendar'])
+      'events' => Url::to(['/timetrack/default/jsoncalendar'])
     ]);
 ?>
 ```
