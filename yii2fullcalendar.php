@@ -33,6 +33,13 @@ class yii2fullcalendar extends elWidget
      * @var bool $theme default is true and will render the jui theme for the calendar
      */
     public $theme = true;
+  
+    /**
+    * @var the name of the theme how the calendar should be displayed. default bootstrap 3
+   	* Available Options
+    * 
+    */
+    public $themeSystem = 'bootstrap3';
 
     /**
      * @var array clientOptions the HTML attributes for the widget container tag.
@@ -217,33 +224,33 @@ class yii2fullcalendar extends elWidget
             $this->clientOptions['header'] = $this->header;
         }
 
-	if(isset($this->defaultView) && !isset($this->clientOptions['defaultView']))
+		if(isset($this->defaultView) && !isset($this->clientOptions['defaultView']))
         {
             $this->clientOptions['defaultView'] = $this->defaultView;
         }
 
-	// clear existing calendar display before rendering new fullcalendar instance
-	// this step is important when using the fullcalendar widget with pjax
-	$js[] = "var loading_container = jQuery('#$id .fc-loading');"; // take backup of loading container
-	$js[] = "jQuery('#$id').empty().append(loading_container);"; // remove/empty the calendar container and append loading container bakup
+        // clear existing calendar display before rendering new fullcalendar instance
+        // this step is important when using the fullcalendar widget with pjax
+        $js[] = "var loading_container = jQuery('#$id .fc-loading');"; // take backup of loading container
+        $js[] = "jQuery('#$id').empty().append(loading_container);"; // remove/empty the calendar container and append loading container bakup
 
         $cleanOptions = $this->getClientOptions();
         $js[] = "jQuery('#$id').fullCalendar($cleanOptions);";
 
         /**
-	* Loads events separately from the calendar creation. Uncomment if you need this functionality.
-	*
-	* lets check if we have an event for the calendar...
-        * if(count($this->events)>0)
-        * {
-        *    foreach($this->events AS $event)
-        *    {
-        *        $jsonEvent = Json::encode($event);
-        *        $isSticky = $this->stickyEvents;
-        *        $js[] = "jQuery('#$id').fullCalendar('renderEvent',$jsonEvent,$isSticky);";
-        *    }
-        * }
-	*/
+        * Loads events separately from the calendar creation. Uncomment if you need this functionality.
+        *
+        * lets check if we have an event for the calendar...
+            * if(count($this->events)>0)
+            * {
+            *    foreach($this->events AS $event)
+            *    {
+            *        $jsonEvent = Json::encode($event);
+            *        $isSticky = $this->stickyEvents;
+            *        $js[] = "jQuery('#$id').fullCalendar('renderEvent',$jsonEvent,$isSticky);";
+            *    }
+            * }
+        */
 
         $view->registerJs(implode("\n", $js),View::POS_READY);
     }
@@ -254,9 +261,14 @@ class yii2fullcalendar extends elWidget
     protected function getClientOptions()
     {
         $id = $this->options['id'];
+      
         $options['loading'] = new JsExpression("function(isLoading, view ) {
                 jQuery('#{$id}').find('.fc-loading').toggle(isLoading);
         }");
+                                               
+        //add new theme information for the calendar                                       
+		$options['themeSytem'] => $this->themeSystem;
+                                               
         if ($this->eventRender){
             $options['eventRender'] = new JsExpression($this->eventRender);
         }
@@ -278,14 +290,17 @@ class yii2fullcalendar extends elWidget
         if ($this->select){
             $options['select'] = new JsExpression($this->select);
         }
+                                               
         if ($this->eventClick){
             $options['eventClick'] = new JsExpression($this->eventClick);
         }
+                                               
 		//checks for events and loads them into the options. Comment out if loading separately.
 		if (count($this->events)>0)
 		{
 			$options['events'] = $this->events;
 		}
+                                               
         $options = array_merge($options, $this->clientOptions);
         return Json::encode($options);
     }
