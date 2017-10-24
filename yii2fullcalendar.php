@@ -66,6 +66,7 @@ class yii2fullcalendar extends elWidget
 
     /**
      * Will hold an url to json formatted events!
+     * replaced by $events pls refer to fullcalendar.io documentation
      * @var url to json service
      */
     public $ajaxEvents = NULL;
