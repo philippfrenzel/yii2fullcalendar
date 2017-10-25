@@ -267,7 +267,7 @@ class yii2fullcalendar extends elWidget
         }");
                                                
         //add new theme information for the calendar                                       
-		$options['themeSytem'] => $this->themeSystem;
+		$options['themeSytem'] = $this->themeSystem;
                                                
         if ($this->eventRender){
             $options['eventRender'] = new JsExpression($this->eventRender);
