@@ -100,6 +100,32 @@ class Event extends Model
   public $durationEditable;
 
   /**
+   * Overrides the master eventResourceEditable option for this single event.
+   * @var boolean
+   */
+  public $resourceEditable
+
+  /**
+   * Allows alternate rendering of the event, like background events.
+   * Can be empty, "background", or "inverse-background"
+   * @var [type]
+   */
+  public $rendering;
+
+  /**
+   * Overrides the master eventOverlap option for this single event.
+   * If false, prevents this event from being dragged/resized over other events. Also prevents other events from being dragged/resized over this event.
+   * @var boolean
+   */
+  public $overlap;
+
+  /**
+   * Overrides the master eventConstraint option for this single event.
+   * @var [type]
+   */
+  public $constraint;
+
+  /**
    * A reference to the event source that this event came from.
    * @var [type]
    */
@@ -149,8 +175,8 @@ class Event extends Model
   {
     return [
       [['id', 'resourceId'], 'integer'],
-      ['title, allDay, start, end, url, className, source, color, backgroundColor, borderColor, textColor, nonstandard', 'safe'],
-      ['editable, startEditable, durationEditable', 'boolean'],
+      ['title, allDay, start, end, url, className, rendering, constraint, source, color, backgroundColor, borderColor, textColor, nonstandard', 'safe'],
+      ['editable, startEditable, durationEditable, resourceEditable, overlap', 'boolean'],
     ];
   }
 
