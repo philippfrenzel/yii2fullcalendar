@@ -103,7 +103,7 @@ class Event extends Model
    * Overrides the master eventResourceEditable option for this single event.
    * @var boolean
    */
-  public $resourceEditable
+  public $resourceEditable;
 
   /**
    * Allows alternate rendering of the event, like background events.
