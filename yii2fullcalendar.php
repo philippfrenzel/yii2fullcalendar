@@ -84,6 +84,11 @@ class yii2fullcalendar extends elWidget
      * @var boolean
      */
     //public $stickyEvents = true;
+	
+	/**
+	* public string/integer $contentHeight
+	*/
+	public $contentHeight = NULL;
 
     /**
      * tell the calendar, if you like to render google calendar events within the view
@@ -164,7 +169,7 @@ class yii2fullcalendar extends elWidget
 
         parent::init();
     }
-
+	
     /**
      * Renders the widget.
      */
@@ -215,6 +220,11 @@ class yii2fullcalendar extends elWidget
 
         if($this->ajaxEvents != NULL){
             $this->clientOptions['events'] = $this->ajaxEvents;
+        }
+	    
+	if(!is_null($this->contentHeight) && !isset($this->clientOptions['contentHeight']))
+        {
+            $this->clientOptions['contentHeight'] = $this->contentHeight;
         }
 
         if(is_array($this->header) && isset($this->clientOptions['header']))
