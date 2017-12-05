@@ -251,7 +251,7 @@ class yii2fullcalendar extends elWidget
         * Loads events separately from the calendar creation. Uncomment if you need this functionality.
         *
         * lets check if we have an event for the calendar...
-            * if(count($this->events)>0)
+            * if(is_array($this->events))
             * {
             *    foreach($this->events AS $event)
             *    {
@@ -304,13 +304,11 @@ class yii2fullcalendar extends elWidget
         if ($this->eventClick){
             $options['eventClick'] = new JsExpression($this->eventClick);
         }
-                                               
-		//checks for events and loads them into the options. Comment out if loading separately.
-		if (count($this->events)>0)
-		{
-			$options['events'] = $this->events;
-		}
-                                               
+
+        if (is_array($this->events) || is_string($this->events)){
+            $options['events'] = $this->events;
+	}
+
         $options = array_merge($options, $this->clientOptions);
         return Json::encode($options);
     }
