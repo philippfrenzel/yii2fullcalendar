@@ -20,7 +20,7 @@
 	"require": {
 		"yiisoft/yii2" : "*",
 		"yiisoft/yii2-jui" : "*",
-		"bower-asset/fullcalendar" : "3.7.0@stable"
+		"bower-asset/fullcalendar" : "3.8.0@stable"
 	},
 	"require-dev": {
 		"codeception/codeception": "*"
