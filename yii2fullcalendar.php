@@ -272,9 +272,13 @@ class yii2fullcalendar extends elWidget
     {
         $id = $this->options['id'];
       
-        $options['loading'] = new JsExpression("function(isLoading, view ) {
+	if ($this->onLoading)
+            $options['loading'] = new JsExpression($this->onLoading);
+        else {
+	    $options['loading'] = new JsExpression("function(isLoading, view ) {
                 jQuery('#{$id}').find('.fc-loading').toggle(isLoading);
-        }");
+	    }");
+	}
                                                
         //add new theme information for the calendar                                       
 		$options['themeSystem'] = $this->themeSystem;
