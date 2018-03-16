@@ -205,6 +205,11 @@ class yii2fullcalendar extends elWidget
         {
             ThemeAsset::register($view);
         }
+	
+	if (array_key_exists('defaultView',$this->clientOptions) && ($this->clientOptions['defaultView'] == 'timelineDay' || $this->clientOptions['defaultView'] == 'agendaDay'))
+        {
+            SchedulerAsset::register($view);
+        }    
 
         if (isset($this->options['lang']))
         {
