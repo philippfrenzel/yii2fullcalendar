@@ -8,6 +8,7 @@ use yii\web\AssetBundle;
 /**
  * @link http://www.frenzel.net/
  * @author Philipp Frenzel <philipp@frenzel.net>
+ * @author akorinek <https://github.com/akorinek>
  */
 
 class SchedulerAsset extends AssetBundle
