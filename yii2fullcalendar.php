@@ -107,6 +107,12 @@ class yii2fullcalendar extends elWidget
      * @var string
      */
     private $_pluginName = 'fullCalendar';
+	
+     /**
+     * The javascript function to us as en onLoading callback
+     * @var string the javascript code that implements the onLoading function
+     */
+    public $onLoading = "";
 
     /**
      * The javascript function to us as en eventRender callback
