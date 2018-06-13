@@ -47,6 +47,7 @@ class yii2fullcalendar extends elWidget
     public $clientOptions = [
         'weekends' => true,
         'editable' => false,
+        'aspectRatio' => 1.35
     ];
 
     /**
