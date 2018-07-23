@@ -72,6 +72,12 @@ class yii2fullcalendar extends elWidget
     ];
 
     /**
+     * It is possible to customize an existing available view by tweaking settings.
+     * @var array views format
+     */
+    public $views= [];
+	
+    /**
      * Will hold an url to json formatted events!
      * replaced by $events pls refer to fullcalendar.io documentation
      * @var url to json service
@@ -212,7 +218,7 @@ class yii2fullcalendar extends elWidget
             ThemeAsset::register($view);
         }
 	
-	if (array_key_exists('defaultView',$this->clientOptions) && ($this->clientOptions['defaultView'] == 'timelineDay' || $this->clientOptions['defaultView'] == 'agendaDay'))
+	if (array_key_exists('defaultView',$this->clientOptions) && ($this->clientOptions['defaultView'] == 'timelineDay' || $this->clientOptions['defaultView'] == 'agendaDay')  || $this->clientOptions['defaultView'] == 'settimana'))
         {
             SchedulerAsset::register($view);
         }    
@@ -245,7 +251,14 @@ class yii2fullcalendar extends elWidget
             $this->clientOptions['header'] = $this->header;
         }
 
-		if(isset($this->defaultView) && !isset($this->clientOptions['defaultView']))
+    	if(is_array($this->views) && isset($this->clientOptions['views']))
+        {
+            $this->clientOptions['views'] = array_merge($this->header,$this->clientOptions['views']);
+        } else {
+            $this->clientOptions['views'] = $this->views;
+        }
+	    
+	if(isset($this->defaultView) && !isset($this->clientOptions['defaultView']))
         {
             $this->clientOptions['defaultView'] = $this->defaultView;
         }
