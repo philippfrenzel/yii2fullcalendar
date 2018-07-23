@@ -1,20 +1,20 @@
 {
-	"name": "philippfrenzel/yii2fullcalendar",
+	"name": "metola/yii2fullcalendar",
 	"description": "Yii2 fullcalendar Widgets",
 	"keywords": ["yii2", "fullcalendar","widget"],
-	"homepage": "http://www.frenzel.net/",
+	"homepage": "",
 	"type": "yii2-extension",
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Philipp Frenzel",
-			"email": "philipp@frenzel.net",
-			"homepage": "http://www.frenzel.net/",
+			"name": "Alejandro Metola",
+			"email": "alexmetola@hotmail.com",
+			"homepage": "",
 			"role": "Developer"
 		}
 	],
 	"support": {
-		"source": "https://github.com/philippfrenzel/yii2fullcalendar"
+		"source": "https://github.com/metola/yii2fullcalendar"
 	},
 	"minimum-stability": "stable",
 	"require": {
