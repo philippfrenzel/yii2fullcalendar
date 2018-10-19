@@ -245,7 +245,7 @@ class yii2fullcalendar extends elWidget
             $this->clientOptions['contentHeight'] = $this->contentHeight;
         }
 
-        if(is_array($this->header) && isset($this->clientOptions['header']))
+        if(is_array($this->header) && isset($this->clientOptions['header']) && is_array($this->clientOptions['header']))
         {
             $this->clientOptions['header'] = array_merge($this->header,$this->clientOptions['header']);
         } else {
