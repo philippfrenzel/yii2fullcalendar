@@ -63,6 +63,12 @@ class yii2fullcalendar extends elWidget
     public $events = [];
 
     /**
+     * Add custom buttons to the calendar header
+     * @var array customButtons
+     */
+    public $customButtons = [];
+
+    /**
      * Define the look n feel for the calendar header, known placeholders are left, center, right
      * @var array header format
      */
@@ -243,6 +249,11 @@ class yii2fullcalendar extends elWidget
 	if(!is_null($this->contentHeight) && !isset($this->clientOptions['contentHeight']))
         {
             $this->clientOptions['contentHeight'] = $this->contentHeight;
+        }
+
+        if(isset($this->customButtons) && !isset($this->clientOptions['customButtons']))
+        {
+            $this->clientOptions['customButtons'] = $this->customButtons;
         }
 
         if(is_array($this->header) && isset($this->clientOptions['header']))
