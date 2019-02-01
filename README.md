@@ -54,7 +54,7 @@ Quickstart Looks like this:
   $Event->id = 1;
   $Event->title = 'Testing';
   $Event->start = date('Y-m-d\TH:i:s\Z');
-  $event->nonstandard = [
+  $Event->nonstandard = [
     'field1' => 'Something I want to be included in object #1',
     'field2' => 'Something I want to be included in object #2',
   ];
