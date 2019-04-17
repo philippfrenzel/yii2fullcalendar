@@ -18,7 +18,7 @@
 	},
 	"minimum-stability": "stable",
 	"require": {
-		"yiisoft/yii2" : "*",
+		"yiisoft/yii2": "~2.0.0",
 		"yiisoft/yii2-jui" : "*",
 		"bower-asset/fullcalendar" : "^4.0.2@stable",
 		"bower-asset/fullcalendar-scheduler" : "^4.0.2@stable"
