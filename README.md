@@ -2,7 +2,7 @@ yii2fullcalendar
 ================
 JQuery Fullcalendar Yii2 Extension
 JQuery from: http://arshaw.com/fullcalendar/
-Version 2.1.1
+Version 4.0.2
 License MIT
 
 JQuery Documentation:
@@ -38,6 +38,7 @@ And ensure, that you have the following plugin installed global:
 Changelog
 ---------
 
+17-04-2019 Updated to latest 4.0.2 Stable Version of the library
 19-01-2017 Updated to include non-standard fields
 29-11-2014 Updated to latest 2.2.3 Version of the library
 
