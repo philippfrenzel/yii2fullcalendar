@@ -20,7 +20,7 @@
 	"require": {
 		"yiisoft/yii2": "~2.0.0",
 		"yiisoft/yii2-jui" : "*",
-		"bower-asset/@fullcalendar/core": "^4.0.2",
+		"bower-asset/fullcalendar": "4.0.2",
 		"bower-asset/fullcalendar-scheduler" : "*@stable"
 	},
 	"require-dev": {
