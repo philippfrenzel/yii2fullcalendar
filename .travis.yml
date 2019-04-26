@@ -22,7 +22,7 @@ install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
 # codeception
   - travis_retry composer global require "codeception/codeception=2.0.*" "codeception/specify=*" "codeception/verify=*"
-  - composer install
+  - composer update
 
 script:
   - php vendor/bin/codecept build
