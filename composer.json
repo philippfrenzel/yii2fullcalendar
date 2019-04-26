@@ -26,6 +26,17 @@
 	"require-dev": {
 		"codeception/codeception": "*"
 	},
+	"config": {
+	    "process-timeout": 1800,
+	      "fxp-asset": {
+		"repositories": {
+		  "bower-asset/eve": {
+		  	"type": "bower-vcs",
+		  	"url": "https://github.com/adobe-webplatform/eve.git"
+		  }
+		}
+	    }
+	},
 	"autoload": {
 		"psr-4": { "yii2fullcalendar\\": "" }
 	}
