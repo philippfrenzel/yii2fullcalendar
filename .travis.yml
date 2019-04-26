@@ -20,6 +20,7 @@ matrix:
 sudo: false
 
 install:
+  - composer clear-cache
   - composer self-update && composer --version
   - composer global require "fxp/composer-asset-plugin:~1.4.4"
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
