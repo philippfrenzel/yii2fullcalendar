@@ -270,10 +270,10 @@ class yii2fullcalendar extends elWidget
             $options['eventClick'] = new JsExpression($this->eventClick);
         }
 		//checks for events and loads them into the options. Comment out if loading separately.
-		if (count($this->events)>0)
-		{
-			$options['events'] = $this->events;
-		}
+	if (count((Array) $this->events) > 0)
+	{
+		$options['events'] = $this->events;
+	}
         $options = array_merge($options, $this->clientOptions);
         return Json::encode($options);
     }
